@@ -1,0 +1,30 @@
+{
+  "version": "1.0.0",
+  "environments": {
+    "staging": {
+      "branch": "develop",
+      "url": "https://staging.example.com",
+      "replicas": 2,
+      "resources": {
+        "cpu": "500m",
+        "memory": "512Mi"
+      }
+    },
+    "production": {
+      "branch": "main",
+      "url": "https://example.com",
+      "replicas": 3,
+      "resources": {
+        "cpu": "1000m",
+        "memory": "1Gi"
+      }
+    }
+  },
+  "deployment_strategy": "rolling",
+  "health_check": {
+    "enabled": true,
+    "path": "/health",
+    "interval": 30,
+    "timeout": 5
+  }
+}
